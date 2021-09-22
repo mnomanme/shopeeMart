@@ -1,9 +1,13 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import Header from './components/Header/Header';
 
 const App = () => {
 	return (
 		<div>
-			<h2>Start Shopee Mart</h2>
+			<Container>
+				<Header />
+			</Container>
 		</div>
 	);
 };
