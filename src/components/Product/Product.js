@@ -8,6 +8,7 @@ const Product = (props) => {
 	const { product } = props;
 	const { name, price, stock, seller, img } = props.product;
 	const { handleAddToCart } = props;
+	const cartIcon = <FontAwesomeIcon icon={faShoppingCart} />;
 	return (
 		<section className="product">
 			<div>
@@ -26,7 +27,7 @@ const Product = (props) => {
 					<small>only {stock} left in stock - order soon</small>
 				</p>
 				<button onClick={() => handleAddToCart(product)} className="btn-regular">
-					<FontAwesomeIcon icon={faShoppingCart} /> add to cart
+					{cartIcon} add to cart
 				</button>
 			</div>
 		</section>
