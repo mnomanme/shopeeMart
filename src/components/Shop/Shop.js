@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Product from '../Product/Product';
 import './Shop.css';
 
 const Shop = () => {
@@ -10,7 +11,7 @@ const Shop = () => {
 			const fetchData = async () => {
 				const res = await fetch(url);
 				const data = await res.json();
-				console.log(data);
+				// console.log(data);
 				setProducts(data);
 			};
 			fetchData();
@@ -23,6 +24,10 @@ const Shop = () => {
 		<section className="shop-container">
 			<div className="product-container">
 				<h3>Products: {products.length} </h3>
+				{products.map((product) => {
+					// console.log(product);
+					return <Product product={product} />;
+				})}
 			</div>
 			<div className="cart-container">
 				<h3>Order Summary: </h3>
