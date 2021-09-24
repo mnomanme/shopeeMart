@@ -33,11 +33,16 @@ const Shop = () => {
 			for (const key in savedCart) {
 				// console.log(key);
 				// console.log(products);
+				// console.log(key, savedCart[key]);
 				const addedProducts = products.find((pd) => pd.key === key);
 				// console.log(addedProducts);
-				storedCart.push(addedProducts);
-				setCart(storedCart);
+				if (addedProducts) {
+					const quantity = savedCart[key];
+					addedProducts.quantity = quantity;
+					storedCart.push(addedProducts);
+				}
 			}
+			setCart(storedCart);
 		}
 	}, [products]);
 
