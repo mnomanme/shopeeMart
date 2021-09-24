@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb } from '../../resources/utilities/fakeDb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
@@ -7,6 +8,7 @@ const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
 
+	// data load from fakeData
 	useEffect(() => {
 		const url = `./products.json`;
 		try {
@@ -23,11 +25,12 @@ const Shop = () => {
 	}, []);
 
 	// handleAddToCart
-
 	const handleAddToCart = (product) => {
-		// console.log('add', product);
+		console.log('add', product);
 		const newCart = [...cart, product];
 		setCart(newCart);
+		// set data localstorage
+		addToDb(product.key);
 	};
 
 	return (

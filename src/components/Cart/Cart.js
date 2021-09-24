@@ -9,7 +9,7 @@ const Cart = (props) => {
 		return previous + price;
 	}, 0);
 
-	const shipping = 15;
+	const shipping = total > 0 ? 15 : 0;
 	const tax = (total + shipping) / 10;
 	const grandTotal = shipping + tax + total;
 
