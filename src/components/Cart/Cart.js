@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const Cart = (props) => {
 	// console.log(props);
@@ -21,14 +22,14 @@ const Cart = (props) => {
 	// }
 
 	return (
-		<section>
+		<Container>
 			<h3>Order Summary</h3>
 			<h5>Items Ordered: {cart.length}</h5>
 			<p>Price: {total.toFixed(2)}</p>
 			<p>Shipping: {shipping.toFixed(2)}</p>
 			<p>Tax: {tax.toFixed(2)}</p>
 			<p>Total: {grandTotal.toFixed(2)}</p>
-		</section>
+		</Container>
 	);
 };
 
