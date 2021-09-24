@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb } from '../../resources/utilities/fakeDb';
+import { addToDb, getStoredCart } from '../../resources/utilities/fakeDb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
@@ -24,9 +24,20 @@ const Shop = () => {
 		}
 	}, []);
 
+	// saved cart price data laod
+	useEffect(() => {
+		const savedCart = getStoredCart();
+		// console.log(savedCart);
+		for (const key in savedCart) {
+			console.log(key, products);
+			const addedProducts = products.find((pd) => pd.key === key);
+			console.log(addedProducts);
+		}
+	}, []);
+
 	// handleAddToCart
 	const handleAddToCart = (product) => {
-		console.log('add', product);
+		// console.log('add', product);
 		const newCart = [...cart, product];
 		setCart(newCart);
 		// set data localstorage
