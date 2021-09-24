@@ -19,6 +19,7 @@ const Cart = (props) => {
 	// 	const { price } = product;
 	// 	total += price;
 	// }
+
 	return (
 		<section>
 			<h3>Order Summary</h3>

@@ -9,6 +9,7 @@ const Product = (props) => {
 	const { name, price, stock, seller, img } = props.product;
 	const { handleAddToCart } = props;
 	const cartIcon = <FontAwesomeIcon icon={faShoppingCart} />;
+
 	return (
 		<section className="product">
 			<div>
