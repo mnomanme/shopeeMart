@@ -27,13 +27,19 @@ const Shop = () => {
 	// saved cart price data laod
 	useEffect(() => {
 		const savedCart = getStoredCart();
+		const storedCart = [];
 		// console.log(savedCart);
-		for (const key in savedCart) {
-			console.log(key, products);
-			const addedProducts = products.find((pd) => pd.key === key);
-			console.log(addedProducts);
+		if (products.length) {
+			for (const key in savedCart) {
+				// console.log(key);
+				// console.log(products);
+				const addedProducts = products.find((pd) => pd.key === key);
+				// console.log(addedProducts);
+				storedCart.push(addedProducts);
+				setCart(storedCart);
+			}
 		}
-	}, []);
+	}, [products]);
 
 	// handleAddToCart
 	const handleAddToCart = (product) => {
