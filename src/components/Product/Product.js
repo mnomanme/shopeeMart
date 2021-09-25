@@ -1,6 +1,7 @@
+import React from 'react';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import { Button } from 'react-bootstrap';
 import Rating from 'react-rating';
 import './Product.css';
 
@@ -30,9 +31,9 @@ const Product = (props) => {
 				</p>
 				<Rating initialRating={star} readonly emptySymbol="far fa-star icon-color" fullSymbol="fas fa-star icon-color"></Rating>
 				<br />
-				<button onClick={() => handleAddToCart(product)} className="btn-regular">
+				<Button onClick={() => handleAddToCart(product)} variant="outline-warning" size="md-lg">
 					{cartIcon} add to cart
-				</button>
+				</Button>
 			</div>
 		</section>
 	);
