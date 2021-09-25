@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 const Cart = (props) => {
 	// console.log(props);
 	const { cart } = props;
-	console.log(cart);
+	// console.log(cart);
 
 	// reduce to calculate total
 	// const total = cart.reduce((previous, product) => {
