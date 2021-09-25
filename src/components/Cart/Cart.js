@@ -31,12 +31,12 @@ const Cart = (props) => {
 
 	return (
 		<Container>
-			<h3>Order Summary</h3>
-			<h5>Items Ordered: {totalItem}</h5>
-			<p>Price: {total.toFixed(2)}</p>
-			<p>Shipping: {shipping.toFixed(2)}</p>
-			<p>Tax: {tax.toFixed(2)}</p>
-			<p>Total: {grandTotal.toFixed(2)}</p>
+			<h4>Order Summary</h4>
+			<h6>Items Ordered: {totalItem}</h6>
+			<p>Price: ${total.toFixed(2)}</p>
+			<p>Shipping: ${shipping.toFixed(2)}</p>
+			<p>Tax: ${tax.toFixed(2)}</p>
+			<h5>Total: ${grandTotal.toFixed(2)}</h5>
 		</Container>
 	);
 };

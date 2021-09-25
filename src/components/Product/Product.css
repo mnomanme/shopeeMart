@@ -2,10 +2,19 @@
 	display: flex;
 	border-bottom: 3px solid lightgray;
 	margin-right: 5px;
-	padding-bottom: 5px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
 }
 
-h5 {
+img {
+	height: 150px;
+}
+
+.productItem {
+	margin-left: 20px;
+}
+
+.productName {
 	color: firebrick;
 	font-weight: 400;
 }

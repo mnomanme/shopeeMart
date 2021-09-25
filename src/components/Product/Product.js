@@ -17,15 +17,12 @@ const Product = (props) => {
 			<div>
 				<img src={img} alt="" />
 			</div>
-			<div className="productName">
-				<h5>{name}</h5>
+			<div className="productItem">
+				<h5 className="productName">{name}</h5>
 				<p>
 					<small>by: {seller}</small>
 				</p>
-				<p>Price: {price}</p>
-				<p>
-					<small>only {stock} left in stock - order soon</small>
-				</p>
+				<h6>Price: ${price}</h6>
 				<p>
 					<small>only {stock} left in stock - order soon</small>
 				</p>

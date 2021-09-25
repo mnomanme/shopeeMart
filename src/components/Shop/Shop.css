@@ -17,4 +17,5 @@ input {
 
 .productContainer {
 	border-right: 3px solid lightgray;
+	text-align: justify;
 }
