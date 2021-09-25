@@ -7,6 +7,7 @@ import './Shop.css';
 const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
+	const [displayProducts, setDisplayProducts] = useState([]);
 
 	// data load from fakeData
 	useEffect(() => {
@@ -17,6 +18,7 @@ const Shop = () => {
 				const data = await res.json();
 				// console.log(data);
 				setProducts(data);
+				setDisplayProducts(data);
 			};
 			fetchData();
 		} catch (error) {
@@ -59,19 +61,22 @@ const Shop = () => {
 	const handleSearch = (event) => {
 		console.log(event.target.value);
 		const searchText = event.target.value;
+		const matchedProducts = products.filter((pd) => pd.name.toLowerCase().includes(searchText.toLowerCase()));
+		console.log(matchedProducts.length);
+		setDisplayProducts(matchedProducts);
 	};
 
 	return (
 		<>
 			<section>
 				<div className="searchContainer">
-					<input onChange={handleSearch} type="text" name="" id="" />
+					<input onChange={handleSearch} type="text" name="" id="" placeholder="search product" />
 				</div>
 			</section>
 			<section className="shopContainer">
 				<div className="productContainer">
 					<h3>Products: {products.length} </h3>
-					{products.map((product) => {
+					{displayProducts.map((product) => {
 						// console.log(product);
 						const { key } = product;
 						return <Product key={key} product={product} handleAddToCart={handleAddToCart} />;
