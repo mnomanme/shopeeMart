@@ -55,20 +55,33 @@ const Shop = () => {
 		addToDb(product.key);
 	};
 
+	// handleSearch
+	const handleSearch = (event) => {
+		console.log(event.target.value);
+		const searchText = event.target.value;
+	};
+
 	return (
-		<section className="shop-container">
-			<div className="product-container">
-				<h3>Products: {products.length} </h3>
-				{products.map((product) => {
-					// console.log(product);
-					const { key } = product;
-					return <Product key={key} product={product} handleAddToCart={handleAddToCart} />;
-				})}
-			</div>
-			<div className="cart-container">
-				<Cart cart={cart} />
-			</div>
-		</section>
+		<>
+			<section>
+				<div className="searchContainer">
+					<input onChange={handleSearch} type="text" name="" id="" />
+				</div>
+			</section>
+			<section className="shopContainer">
+				<div className="productContainer">
+					<h3>Products: {products.length} </h3>
+					{products.map((product) => {
+						// console.log(product);
+						const { key } = product;
+						return <Product key={key} product={product} handleAddToCart={handleAddToCart} />;
+					})}
+				</div>
+				<div className="cart-container">
+					<Cart cart={cart} />
+				</div>
+			</section>
+		</>
 	);
 };
 
