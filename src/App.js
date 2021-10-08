@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
 import OrderReview from './components/OrderReview/OrderReview';
 import Inventory from './components/Inventory/Inventory';
+import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import NotFound from './components/NotFound/NotFound';
 
 const App = () => {
@@ -21,6 +22,9 @@ const App = () => {
 					</Route>
 					<Route path="/inventory">
 						<Inventory />
+					</Route>
+					<Route to="/placeorder">
+						<PlaceOrder />
 					</Route>
 					<Route exact path="/">
 						<Shop />
