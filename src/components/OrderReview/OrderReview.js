@@ -1,9 +1,11 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { deleteFromDb } from '../../resources/utilities/fakeDb';
 import useProducts from '../../hooks/useProducts';
 import useCart from '../../hooks/useCart';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
-import { deleteFromDb } from '../../resources/utilities/fakeDb';
 
 const OrderReview = () => {
 	const [products] = useProducts();
@@ -26,7 +28,13 @@ const OrderReview = () => {
 					))}
 				</div>
 				<div className="cart-container">
-					<Cart cart={cart} />
+					<Cart cart={cart}>
+						<Link to="/review">
+							<Button variant="outline-warning" size="md-lg">
+								Place your Order
+							</Button>
+						</Link>
+					</Cart>
 				</div>
 			</section>
 		</div>
