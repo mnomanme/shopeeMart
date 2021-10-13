@@ -7,6 +7,8 @@ import OrderReview from './components/OrderReview/OrderReview';
 import Inventory from './components/Inventory/Inventory';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import NotFound from './components/NotFound/NotFound';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 const App = () => {
 	return (
@@ -28,6 +30,12 @@ const App = () => {
 					</Route>
 					<Route exact path="/">
 						<Shop />
+					</Route>
+					<Route path="/login">
+						<Login />
+					</Route>
+					<Route path="/register">
+						<Register />
 					</Route>
 					<Route path="*">
 						<NotFound />
