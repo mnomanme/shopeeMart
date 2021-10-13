@@ -23,7 +23,7 @@ const App = () => {
 					<Route path="/inventory">
 						<Inventory />
 					</Route>
-					<Route to="/placeorder">
+					<Route path="/placeorder">
 						<PlaceOrder />
 					</Route>
 					<Route exact path="/">
