@@ -22,9 +22,16 @@ step-2:
 3. create route for login and registration
 
 step-3:
-1.setup sign in method
+1. setup sign in method
 2. setup sign out method 
 3. use state 
 4. special ovserver 
+5. return necessary methods and states from userFirebase
+
+step-4:
+1. create a auth context 
+2. create context Provider
+3. use Auth Provider
+4. create useAuth hook
 
 */
