@@ -16,22 +16,27 @@ step-1: initial setup
 4. initialize firebase
 5. enable auth methdod  
 
-step-2:
+step-2: steup component
 1. create login component 
 2. create register component 
 3. create route for login and registration
 
-step-3:
+step-3: set auth system
 1. setup sign in method
 2. setup sign out method 
 3. use state 
 4. special ovserver 
-5. return necessary methods and states from userFirebase
-
-step-4:
+5. return necessary methods and states from useFirebase
+ 
+step-4: create auth context hook (useAuth)
 1. create a auth context 
 2. create context Provider
+3. set context Provider context value
 3. use Auth Provider
 4. create useAuth hook
+
+step-5 create private hook
+1.  create pirvate hook
+2. set private hook
 
 */
