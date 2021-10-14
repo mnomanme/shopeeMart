@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../../resources/images/logo.png';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
+// import useFirebase from '../../hooks/useFirebase';
 
 const Header = () => {
-	const { user, logOut } = useFirebase();
+	const { user, logOut } = useAuth();
+	// const { user, logOut } = useFirebase();
 
 	return (
 		<section className="header">
@@ -14,6 +16,12 @@ const Header = () => {
 				<Link to="/shop">Shop</Link>
 				<Link to="/review">Order</Link>
 				<Link to="/inventory">Manage Inventory</Link>
+				{user.email && (
+					<span>
+						Hello
+						<strong className="text-primary"> {user.displayName}</strong>
+					</span>
+				)}
 				{user.email ? (
 					<Link to="/" onClick={logOut}>
 						Log Out
