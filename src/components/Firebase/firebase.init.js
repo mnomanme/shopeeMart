@@ -20,4 +20,11 @@ step-2:
 1. create login component 
 2. create register component 
 3. create route for login and registration
+
+step-3:
+1.setup sign in method
+2. setup sign out method 
+3. use state 
+4. special ovserver 
+
 */
