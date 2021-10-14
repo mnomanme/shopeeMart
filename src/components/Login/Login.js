@@ -1,23 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
+	const { user, signInUsingGoogle, logOut } = useFirebase();
+
 	return (
 		<section className="d-flex justify-content-center align-items-center">
 			<div>
 				<h2 className="text-center">Login</h2>
 
 				<form onSubmit="">
-					<div class="form-group">
+					<div className="form-group">
 						<label>Email address</label>
-						<input type="email" name="" id="" class="form-control" placeholder="Enter email" />
+						<input type="email" name="" id="" className="form-control" placeholder="Enter email" />
 					</div>
-					<div class="form-group">
+					<div className="form-group">
 						<label>Password</label>
-						<input type="password" name="" id="" class="form-control" placeholder="Password" />
+						<input type="password" name="" id="" className="form-control" placeholder="Password" />
 					</div>
-					<div class="form-group">
-						<input type="submit" value="Submit" class="form-control btn btn-success" />
+					<div className="form-group">
+						<input type="submit" value="Submit" className="form-control btn btn-success" />
 					</div>
 				</form>
 
@@ -34,7 +37,9 @@ const Login = () => {
 
 				<div className="text-center">
 					<h6>---------or---------</h6>
-					<button className="btn btn-info ">Google Sign In</button>
+					<button onClick={signInUsingGoogle} className="btn btn-info ">
+						Google Sign In
+					</button>
 				</div>
 			</div>
 		</section>
