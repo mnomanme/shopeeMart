@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
+// import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
-	const { user, signInUsingGoogle, logOut } = useFirebase();
+	const { user, signInUsingGoogle } = useAuth();
+	// const { user, signInUsingGoogle } = useFirebase();
 
 	return (
 		<section className="d-flex justify-content-center align-items-center">
