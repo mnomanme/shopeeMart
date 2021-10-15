@@ -1,25 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 // import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
-	const { user, signInUsingGoogle } = useAuth();
+	const { signInUsingGoogle } = useAuth();
+	const location = useLocation();
+	const history = useHistory();
+	const redirect_url = location.state?.from || '/shop';
+	// console.log(location.state?.from);
 	// const { user, signInUsingGoogle } = useFirebase();
+
+	const handleGoogleLogIn = () => {
+		signInUsingGoogle().then((result) => {
+			console.log(result);
+			history.push(redirect_url);
+		});
+	};
 
 	return (
 		<section className="d-flex justify-content-center align-items-center">
 			<div>
 				<h2 className="text-center">Login</h2>
 
-				<form onSubmit="">
+				<form>
 					<div className="form-group">
 						<label>Email address</label>
-						<input type="email" name="" id="" className="form-control" placeholder="Enter email" />
+						<input type="email" name="email" className="form-control" placeholder="Enter email" />
 					</div>
 					<div className="form-group">
 						<label>Password</label>
-						<input type="password" name="" id="" className="form-control" placeholder="Password" />
+						<input type="password" name="password" className="form-control" placeholder="Password" />
 					</div>
 					<div className="form-group">
 						<input type="submit" value="Submit" className="form-control btn btn-success" />
@@ -39,7 +50,7 @@ const Login = () => {
 
 				<div className="text-center">
 					<h6>---------or---------</h6>
-					<button onClick={signInUsingGoogle} className="btn btn-info ">
+					<button onClick={handleGoogleLogIn} className="btn btn-info ">
 						Google Sign In
 					</button>
 				</div>
