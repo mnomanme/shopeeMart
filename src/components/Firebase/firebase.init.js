@@ -39,4 +39,8 @@ step-5 create private hook
 1.  create pirvate hook
 2. set private hook
 
+step-6: redirect after login
+1. after login redirect user to their desired destination
+
+
 */
