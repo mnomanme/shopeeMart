@@ -6,7 +6,6 @@ const Shipping = () => {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm();
 
@@ -16,7 +15,6 @@ const Shipping = () => {
 		console.log(data);
 	};
 
-	console.log(watch('example'));
 	return (
 		<>
 			<section className="w-50">

@@ -20,7 +20,7 @@ const OrderReview = () => {
 		deleteFromDb(key);
 	};
 
-	const handlePlaceOrder = () => {
+	const handleProceedToShipping = () => {
 		history.push('/shipping');
 		// setCart([]);
 		// clearTheCart();
@@ -37,7 +37,7 @@ const OrderReview = () => {
 				</div>
 				<div className="cart-container">
 					<Cart cart={cart}>
-						<Button onClick={handlePlaceOrder} variant="outline-warning" size="md-lg">
+						<Button onClick={handleProceedToShipping} variant="outline-warning" size="md-lg">
 							Proceed to Shipping
 						</Button>
 					</Cart>
