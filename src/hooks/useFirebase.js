@@ -12,13 +12,13 @@ const useFirebase = () => {
 	const googleProvider = new GoogleAuthProvider();
 
 	const signInUsingGoogle = () => {
-		signInWithPopup(auth, googleProvider)
-			.then((result) => {
-				console.log(result);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+		return signInWithPopup(auth, googleProvider);
+		// .then((result) => {
+		// 	console.log(result);
+		// })
+		// .catch((error) => {
+		// 	console.log(error);
+		// });
 	};
 
 	const logOut = () => {
@@ -39,7 +39,7 @@ const useFirebase = () => {
 				setUser({});
 			}
 		});
-	}, []);
+	}, [auth]);
 
 	return { user, setUser, signInUsingGoogle, logOut };
 };
