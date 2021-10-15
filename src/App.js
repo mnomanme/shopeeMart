@@ -10,6 +10,8 @@ import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Shipping from './components/Shipping/Shipping';
 
 const App = () => {
 	return (
@@ -24,12 +26,15 @@ const App = () => {
 						<Route path="/review">
 							<OrderReview />
 						</Route>
-						<Route path="/inventory">
+						<PrivateRoute path="/inventory">
 							<Inventory />
-						</Route>
-						<Route path="/placeorder">
+						</PrivateRoute>
+						<PrivateRoute path="/shipping">
+							<Shipping />
+						</PrivateRoute>
+						<PrivateRoute path="/placeorder">
 							<PlaceOrder />
-						</Route>
+						</PrivateRoute>
 						<Route exact path="/">
 							<Shop />
 						</Route>
