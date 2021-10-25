@@ -1,14 +1,12 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import { clearTheCart, deleteFromDb } from '../../resources/utilities/fakeDb';
-// import useProducts from '../../hooks/useProducts';
+import { deleteFromDb } from '../../resources/utilities/fakeDb';
 import useCart from '../../hooks/useCart';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
 const OrderReview = () => {
-	// const [products] = useProducts();
 	const [cart, setCart] = useCart();
 
 	const history = useHistory();
@@ -22,8 +20,6 @@ const OrderReview = () => {
 
 	const handleProceedToShipping = () => {
 		history.push('/shipping');
-		// setCart([]);
-		// clearTheCart();
 	};
 
 	return (

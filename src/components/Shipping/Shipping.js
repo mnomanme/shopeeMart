@@ -1,18 +1,37 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
+import { clearTheCart, getStoredCart } from '../../resources/utilities/fakeDb';
 
 const Shipping = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm();
 
 	const { user } = useAuth();
 
 	const onSubmit = (data) => {
-		console.log(data);
+		const savedCart = getStoredCart();
+		data.order = savedCart;
+		// console.log(data);
+
+		fetch('http://localhost:4000/orders', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				// console.log(data);
+				if (data.insertedId) {
+					alert('your order placed successfully');
+					clearTheCart();
+					reset();
+				}
+			});
 	};
 
 	return (

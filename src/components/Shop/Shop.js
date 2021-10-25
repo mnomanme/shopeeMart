@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, getStoredCart } from '../../resources/utilities/fakeDb';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
-import { addToDb, getStoredCart } from '../../resources/utilities/fakeDb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
@@ -41,14 +41,12 @@ const Shop = () => {
 	useEffect(() => {
 		const savedCart = getStoredCart();
 		const storedCart = [];
-		// console.log(savedCart);
 		if (products.length) {
 			for (const key in savedCart) {
 				// console.log(key);
 				// console.log(products);
 				// console.log(key, savedCart[key]);
 				const addedProducts = products.find((pd) => pd.key === key);
-				// console.log(addedProducts);
 				if (addedProducts) {
 					const quantity = savedCart[key];
 					addedProducts.quantity = quantity;
