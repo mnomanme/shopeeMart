@@ -24,6 +24,7 @@ async function run() {
 		console.log('Shopee Mart Database Connected Successfully!');
 
 		const database = client.db('db1shopee');
+
 		const itemsCollection = database.collection('productsItem');
 		const ordersCollection = database.collection('orders');
 
