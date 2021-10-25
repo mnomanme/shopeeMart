@@ -50,6 +50,16 @@ async function run() {
 			// console.log(`A document was inserted with the _id: ${result.insertedId}`);
 			res.send({ count, products });
 		});
+
+		// use post to get data by keys
+		app.post('/products/bykeys', async (req, res) => {
+			const keys = req.body;
+			const query = { key: { $in: keys } };
+			const products = await itemsCollection.find(query).toArray();
+			console.log(req.body);
+			// res.send('Hitting the post api');
+			res.json(products);
+		});
 	} finally {
 		// await client.close();
 	}
