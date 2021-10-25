@@ -6,7 +6,7 @@ const useProducts = () => {
 		const fetchData = async () => {
 			const res = await fetch('http://localhost:4000/products');
 			const data = await res.json();
-			setProducts(data);
+			setProducts(data.products);
 		};
 		fetchData();
 	}, []);

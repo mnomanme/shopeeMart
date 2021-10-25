@@ -28,11 +28,12 @@ async function run() {
 		// GET PRODUCTS
 		app.get('/products', async (req, res) => {
 			const cursor = itemsCollection.find({});
-			const products = await cursor.toArray();
+			const products = await cursor.limit(20).toArray();
+			const count = await cursor.count();
 
 			// const result = await itemsCollection.insertOne(products);
 			// console.log(`A document was inserted with the _id: ${result.insertedId}`);
-			res.send(products);
+			res.send({ count, products });
 		});
 	} finally {
 		// await client.close();

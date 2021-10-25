@@ -10,6 +10,7 @@ const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
 	const [displayProducts, setDisplayProducts] = useState([]);
+	const [pageCount, setPageCount] = useState(0);
 
 	// data load from fakeData
 	useEffect(() => {
@@ -18,9 +19,14 @@ const Shop = () => {
 			const fetchData = async () => {
 				const res = await fetch(url);
 				const data = await res.json();
-				// console.log(data);
-				setProducts(data);
-				setDisplayProducts(data);
+				// console.log(data.products);
+				setProducts(data.products);
+				setDisplayProducts(data.products);
+
+				const count = data.count;
+				const pageNumber = Math.ceil(count / 10);
+
+				setPageCount(pageNumber);
 			};
 			fetchData();
 		} catch (error) {
