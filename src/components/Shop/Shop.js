@@ -13,7 +13,7 @@ const Shop = () => {
 
 	// data load from fakeData
 	useEffect(() => {
-		const url = `./products.json`;
+		const url = `http://localhost:4000/products`;
 		try {
 			const fetchData = async () => {
 				const res = await fetch(url);
