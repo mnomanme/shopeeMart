@@ -22,8 +22,10 @@ async function run() {
 	try {
 		await client.connect();
 		console.log('Shopee Mart Database Connected Successfully!');
+
 		const database = client.db('db1shopee');
 		const itemsCollection = database.collection('productsItem');
+		const ordersCollection = database.collection('orders');
 
 		// GET PRODUCTS
 		app.get('/products', async (req, res) => {
@@ -59,6 +61,15 @@ async function run() {
 			console.log(req.body);
 			// res.send('Hitting the post api');
 			res.json(products);
+		});
+
+		// post add orders api
+		app.post('/orders', async (req, res) => {
+			const order = req.body;
+			const result = await ordersCollection.insertOne(order);
+			console.log('orders', order);
+
+			res.json(result);
 		});
 	} finally {
 		// await client.close();
