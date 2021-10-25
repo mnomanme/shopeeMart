@@ -23,10 +23,17 @@ async function run() {
 		await client.connect();
 		console.log('Shopee Mart Database Connected Successfully!');
 		const database = client.db('db1shopee');
-		const haiku = database.collection('productsItem');
+		const itemsCollection = database.collection('productsItem');
 
-		// const result = await haiku.insertOne(doc);
-		// console.log(`A document was inserted with the _id: ${result.insertedId}`);
+		// GET PRODUCTS
+		app.get('/products', async (req, res) => {
+			const cursor = itemsCollection.find({});
+			const products = await cursor.toArray();
+
+			// const result = await itemsCollection.insertOne(products);
+			// console.log(`A document was inserted with the _id: ${result.insertedId}`);
+			res.send(products);
+		});
 	} finally {
 		// await client.close();
 	}
