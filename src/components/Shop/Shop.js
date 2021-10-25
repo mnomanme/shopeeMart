@@ -10,6 +10,7 @@ const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
 	const [displayProducts, setDisplayProducts] = useState([]);
+	const [page, setPage] = useState(0);
 	const [pageCount, setPageCount] = useState(0);
 
 	// data load from fakeData
@@ -98,6 +99,15 @@ const Shop = () => {
 						const { key } = product;
 						return <Product key={key} product={product} handleAddToCart={handleAddToCart} />;
 					})}
+					<section className="pagination">
+						{[...Array(pageCount).keys()].map((index) => {
+							return (
+								<Button onClick={() => setPage(index)} key={index} variant="success" size="sm" className={index === page ? 'selected' : ''}>
+									{index}
+								</Button>
+							);
+						})}
+					</section>
 				</div>
 				<div className="cart-container">
 					<Cart cart={cart}>
