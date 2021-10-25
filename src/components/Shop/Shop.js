@@ -13,9 +13,10 @@ const Shop = () => {
 	const [page, setPage] = useState(0);
 	const [pageCount, setPageCount] = useState(0);
 
-	// data load from fakeData
+	// data load from database
+	const size = 10;
 	useEffect(() => {
-		const url = `http://localhost:4000/products`;
+		const url = `http://localhost:4000/products?page=${page}&&size=${size}`;
 		try {
 			const fetchData = async () => {
 				const res = await fetch(url);
@@ -25,7 +26,7 @@ const Shop = () => {
 				setDisplayProducts(data.products);
 
 				const count = data.count;
-				const pageNumber = Math.ceil(count / 10);
+				const pageNumber = Math.ceil(count / size);
 
 				setPageCount(pageNumber);
 			};
@@ -33,7 +34,7 @@ const Shop = () => {
 		} catch (error) {
 			console.log(error);
 		}
-	}, []);
+	}, [page]);
 
 	// saved cart price data laod
 	useEffect(() => {
@@ -100,13 +101,11 @@ const Shop = () => {
 						return <Product key={key} product={product} handleAddToCart={handleAddToCart} />;
 					})}
 					<section className="pagination">
-						{[...Array(pageCount).keys()].map((index) => {
-							return (
-								<Button onClick={() => setPage(index)} key={index} variant="success" size="sm" className={index === page ? 'selected' : ''}>
-									{index}
-								</Button>
-							);
-						})}
+						{[...Array(pageCount).keys()].map((index) => (
+							<Button onClick={() => setPage(index)} key={index} variant="success" size="sm" className={index === page ? 'selected' : ''}>
+								{index + 1}
+							</Button>
+						))}
 					</section>
 				</div>
 				<div className="cart-container">
