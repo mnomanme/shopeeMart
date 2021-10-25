@@ -27,9 +27,24 @@ async function run() {
 
 		// GET PRODUCTS
 		app.get('/products', async (req, res) => {
+			console.log(req.query);
+
 			const cursor = itemsCollection.find({});
-			const products = await cursor.toArray();
+
+			const page = req.query.page;
+			const size = parseInt(req.query.size);
+
 			const count = await cursor.count();
+			let products;
+
+			if (page) {
+				products = await cursor
+					.skip(page * size)
+					.limit(size)
+					.toArray();
+			} else {
+				products = await cursor.toArray();
+			}
 
 			// const result = await itemsCollection.insertOne(products);
 			// console.log(`A document was inserted with the _id: ${result.insertedId}`);
