@@ -4,7 +4,7 @@ const useProducts = () => {
 	const [products, setProducts] = useState([]);
 	useEffect(() => {
 		const fetchData = async () => {
-			const res = await fetch('http://localhost:4000/products');
+			const res = await fetch('https://e-shopee-mart.herokuapp.com/products');
 			const data = await res.json();
 			setProducts(data.products);
 		};
