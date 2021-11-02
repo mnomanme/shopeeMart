@@ -14,8 +14,9 @@ const Header = () => {
 			<img src={logo} alt="" />
 			<nav>
 				<Link to="/shop">Shop</Link>
-				<Link to="/review">Order</Link>
+				<Link to="/review">Order Review</Link>
 				<Link to="/inventory">Manage Inventory</Link>
+				{user.email && <Link to="/orders">Orders</Link>}
 				{user.email && (
 					<span>
 						Hello

@@ -12,6 +12,7 @@ import Register from './components/Register/Register';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Shipping from './components/Shipping/Shipping';
+import { Orders } from './components/Orders/Orders';
 
 const App = () => {
 	return (
@@ -31,6 +32,9 @@ const App = () => {
 						</PrivateRoute>
 						<PrivateRoute path="/shipping">
 							<Shipping />
+						</PrivateRoute>
+						<PrivateRoute path="/orders">
+							<Orders />
 						</PrivateRoute>
 						<PrivateRoute path="/placeorder">
 							<PlaceOrder />
