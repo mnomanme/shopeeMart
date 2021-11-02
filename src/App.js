@@ -33,11 +33,11 @@ const App = () => {
 						<PrivateRoute path="/shipping">
 							<Shipping />
 						</PrivateRoute>
-						<PrivateRoute path="/orders">
-							<Orders />
-						</PrivateRoute>
 						<PrivateRoute path="/placeorder">
 							<PlaceOrder />
+						</PrivateRoute>
+						<PrivateRoute path="/orders">
+							<Orders />
 						</PrivateRoute>
 						<Route exact path="/">
 							<Shop />
