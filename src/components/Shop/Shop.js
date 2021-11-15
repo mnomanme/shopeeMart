@@ -17,7 +17,7 @@ const Shop = () => {
 	// data load from database
 	const size = 10;
 	useEffect(() => {
-		const url = `https://e-shopee-mart.herokuapp.com/products?page=${page}&&size=${size}`;
+		const url = `https://shopee-mart-server.herokuapp.com/products?page=${page}&&size=${size}`;
 		try {
 			const fetchData = async () => {
 				const res = await fetch(url);

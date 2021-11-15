@@ -6,7 +6,7 @@
 
 ## Shopee Mart Client Now Live [Client Live Site](https://shopee-mart.firebaseapp.com/)
 
-## Shopee Mart Server Now Live [Server Live Site](https://e-shopee-mart.herokuapp.com/)
+## Shopee Mart Server Now Live [Server Live Site](https://shopee-mart-server.herokuapp.com/)
 
 #### server site key search
 

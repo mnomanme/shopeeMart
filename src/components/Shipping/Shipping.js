@@ -18,7 +18,7 @@ const Shipping = () => {
 		data.order = savedCart;
 		// console.log(data);
 
-		fetch('https://e-shopee-mart.herokuapp.com/orders', {
+		fetch('https://shopee-mart-server.herokuapp.com/orders', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),

@@ -8,7 +8,7 @@ export const Orders = () => {
 	const history = useHistory();
 
 	useEffect(() => {
-		fetch(`https://e-shopee-mart.herokuapp.com/orders?email=${user.email}`, {
+		fetch(`https://shopee-mart-server.herokuapp.com/orders?email=${user.email}`, {
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('idToken')}`,
 			},

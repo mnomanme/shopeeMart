@@ -8,7 +8,7 @@ const useCart = () => {
 		const savedCart = getStoredCart();
 		const keys = Object.keys(savedCart);
 
-		fetch('https://e-shopee-mart.herokuapp.com/products/bykeys', {
+		fetch('https://shopee-mart-server.herokuapp.com/products/bykeys', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(keys),
